@@ -1,6 +1,5 @@
-import app from "./Programas/Primeiro Contato"
+import app from "./Programas/exercicio2/App"
 
 export default function App() {
-"#099","green"
     return (app())
 }
