@@ -1,18 +1,12 @@
-import {Text, View, TouchableOpacity} from "react-native"
-import {useState} from "react"
+import {Text, View} from "react-native"
 export default function MostrarResultado(props){
-    const [texto, setTexto] = useState("")
     const verificarIdade = idade => 
     idade >= 18 ? "Maior" : "Menor"
-
-const montarTexto = ()=>
-    setTexto(`Olá ${props.dados.nome} ${props.dados.sobreNome} você tem ${props.dados.idade} e é ${verificarIdade(props.idade)} de idade`)
     return (
-        <View style={props.styles.container}><TouchableOpacity
-        style = {props.styles.touchable}
-        onPress={montarTexto}
-        >
-        <Text>Verificar</Text>
-    </TouchableOpacity>
-    <Text>{texto}</Text>
-    </View>)}
+        <View style={props.styles.container}>
+    <Text>{
+        props.dados.nome ?? null ? 
+        `Olá ${props.dados.nome} ${props.dados.sobreNome} você tem ${props.dados.idade} e é ${verificarIdade(props.dados.idade)} de idade`
+            : ''
+        }</Text>
+    </View>)} 

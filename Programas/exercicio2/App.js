@@ -1,36 +1,24 @@
-import { StyleSheet, Text, TextInput, SafeAreaView, TouchableOpacity, View } from 'react-native'
-import { useState } from "react"
+import { useState } from 'react'
+import { StyleSheet, Text, SafeAreaView} from 'react-native'
+
 import MostrarResultado from "./src/componentes/MostrarResultado"
 import PedirDados from "./src/componentes/PedirDados"
 
 export default function App() {
-    const [nome, setNome] = useState("")
-    const [sobreNome, setSobreNome] = useState("")
-    const [idade, setIdade] = useState(0)
-    const [resultado, setResultado] = useState("")
-
-
-
+const [dados, setDados] = useState({})
 
     return (
         <SafeAreaView style={styles.mainContainer}>
 
             <PedirDados
-                dados = {{ "nome": nome, 
-                            "setNome":setNome, 
-                            "sobreNome": sobreNome, 
-                            "setSobreNome":setSobreNome, 
-                            "idade": idade, 
-                            "setIdade":setIdade }}
+                pegarDados = {setDados}
                 styles={styles}
-
             />
 
             <Text>
                 <MostrarResultado
-                    dados={{ "nome": nome, "sobreNome": sobreNome, "idade": idade }}
+                    dados = {dados}
                     styles={styles}
-                    resultado={idade}
                 />
             </Text>
         </SafeAreaView>
@@ -50,7 +38,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width:300,
-        padding:15
+        padding:15,
+        borderWidth:1
     },
     input: {
         borderColor: "black",
