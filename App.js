@@ -1,4 +1,4 @@
-import app from "./Programas/exercicio2/App"
+import app from "./Programas/Navegacao/app"
 
 export default function App() {
     return (app())
