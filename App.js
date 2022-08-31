@@ -1,4 +1,4 @@
-import app from "./Programas/Navegacao/app"
+import app from "./Projetos/NavegacaoDrawer/app"
 
 export default function App() {
     return (app())

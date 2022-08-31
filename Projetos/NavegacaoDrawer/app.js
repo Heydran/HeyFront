@@ -1,37 +1,37 @@
-import { StyleSheet } from "react-native"
+import { NavigationContainer}  from '@react-navigation/native'
+import { createDrawerNavigator}  from '@react-navigation/drawer'
+
 import Home from "./src/elements/home"
 import Consulta from "./src/elements/consulta"
 import Cadastro from "./src/elements/cadastro"
-import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Edicao from "./src/elements/edicao"
 
 
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
+            <Drawer.Navigator>
+                <Drawer.Screen
                     name="home"
                     component={Home}
                     options={{ title: "?" }}
                 />
-                <Stack.Screen
+                <Drawer.Screen
                     name="consulta"
                     component={Consulta}
                 />
-                <Stack.Screen
+                <Drawer.Screen
                     name="cadastro"
                     component={Cadastro}
                 />
-                <Stack.Screen
+                <Drawer.Screen
                     name="edicao"
                     component={Edicao}
                 />
-            </Stack.Navigator>
+            </Drawer.Navigator>
         </NavigationContainer>
     )
 }
