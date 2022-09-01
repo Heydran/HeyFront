@@ -1,5 +1,6 @@
 import { NavigationContainer}  from '@react-navigation/native'
-import { createDrawerNavigator}  from '@react-navigation/drawer'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
 
 import Home from "./src/elements/home"
 import Consulta from "./src/elements/consulta"
@@ -8,33 +9,30 @@ import Edicao from "./src/elements/edicao"
 
 
 
-const Drawer = createDrawerNavigator();
+const Tab = createMaterialTopTabNavigator()
 
 export default function App() {
     return (
         <NavigationContainer>
-            <Drawer.Navigator>
-                <Drawer.Screen
+            <Tab.Navigator>
+                <Tab.Screen
                     name="home"
                     component={Home}
-                    options={{ title: "Home" }}
+                    options={{ title: "?" }}
                 />
-                <Drawer.Screen
+                <Tab.Screen
                     name="consulta"
                     component={Consulta}
-                    options={{ title: "Consulta" }}
                 />
-                <Drawer.Screen
+                <Tab.Screen
                     name="cadastro"
                     component={Cadastro}
-                    options={{ title: "Cadastro" }}
                 />
-                <Drawer.Screen
+                <Tab.Screen
                     name="edicao"
                     component={Edicao}
-                    options={{ title: "Edicao" }}
                 />
-            </Drawer.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     )
 }

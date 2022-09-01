@@ -22,10 +22,6 @@ const styles = StyleSheet.create({
     },
     itensLista:{
            
-    },
-    contCadastro:{
-        margin:10,
-        
     }
 })
 
