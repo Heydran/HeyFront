@@ -4,16 +4,34 @@ import styles from "../static/styles"
 import NaviBar from "./naviBar"
 export default function Cadastro({ navigation, route }) {
     const [nome, setNome] = useState("")
-    const [fone, setFone] = useState("")
+    const [senha, setSenha] = useState("")
     const [email, setEmail] = useState("")
 
-    function gravar(){
-        var contato = {
-            nome,
-            fone,
-            email
+  
+    const cadastrar = () => {
+        if (true) {
+            fetch('http://localhost:8080/user/singUp',
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json', 'content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        user_name:nome,
+                        user_passwd:senha,
+                        user_email:email
+                    })
+                }
+            )
+                .then(() =>  { console.log("Registro inserido com sucesso") })
+                .then(() => {
+                    setNome("")
+                    setSenha("")
+                    setEmail("")
+                })
+                .catch((err) => { console.log(err) })
         }
-        console.log(contato);
+
     }
     return (
         <SafeAreaView style={styles.mainContainer}>
@@ -23,15 +41,18 @@ export default function Cadastro({ navigation, route }) {
             <Text>Cadastro de Pessoa</Text>
             <TextInput
                 placeholder="Nome"
-                onchangeText={setNome} />
+                value={nome}
+                onChangeText={setNome} />
             <TextInput
-                placeholder="Fone"
-                onchangeText={setFone} />
+                placeholder="Senha"
+                value={senha}
+                onChangeText={setSenha} />
             <TextInput
                 placeholder="Email"
-                onchangeText={setEmail} />
+                value={email}
+                onChangeText={setEmail} />
 
-            <TouchableOpacity onPress={gravar}>
+            <TouchableOpacity onPress={cadastrar}>
 
                 <Text>Cadastrar</Text>
 

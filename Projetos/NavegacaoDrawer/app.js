@@ -4,7 +4,6 @@ import { createDrawerNavigator}  from '@react-navigation/drawer'
 import Home from "./src/elements/home"
 import Consulta from "./src/elements/consulta"
 import Cadastro from "./src/elements/cadastro"
-import Edicao from "./src/elements/edicao"
 
 
 
@@ -28,11 +27,6 @@ export default function App() {
                     name="cadastro"
                     component={Cadastro}
                     options={{ title: "Cadastro" }}
-                />
-                <Drawer.Screen
-                    name="edicao"
-                    component={Edicao}
-                    options={{ title: "Edicao" }}
                 />
             </Drawer.Navigator>
         </NavigationContainer>

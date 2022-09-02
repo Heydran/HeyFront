@@ -3,7 +3,6 @@ import { SafeAreaView, Text, TouchableOpacity } from "react-native"
 
 import styles from "../static/styles"
 export default function Home(props) {
-    const [pessoas, setPessoas] = useState(["pessoa 1", "pessoa 2", "pessoa 3", "pessoa 4", "pessoa 5", "pessoa 6", "pessoa 7"])
     return (
         <SafeAreaView style={styles.naviBar}>
             <TouchableOpacity
@@ -14,13 +13,13 @@ export default function Home(props) {
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.itensNaviBar}
-                onPress={() => props.navigation.navigate('consulta',{pessoas})
+                onPress={() => props.navigation.navigate('consulta')
                 }><Text>Consulta</Text>
 
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.itensNaviBar}
-                onPress={() => props.navigation.navigate('cadastro',{setPessoas})
+                onPress={() => props.navigation.navigate('cadastro')
                 }><Text>Cadastro</Text>
 
             </TouchableOpacity>
