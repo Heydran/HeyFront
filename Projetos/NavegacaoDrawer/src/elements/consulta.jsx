@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
-import { SafeAreaView, View, Text, TouchableOpacity } from "react-native"
+import { SafeAreaView, View, Text } from "react-native"
 import { FlatList } from "react-native-gesture-handler"
-import styles from "../static/styles"
+import UserCard from "./userCard"
+import styles from "../static/styles/consulta"
 import NaviBar from "./naviBar"
 export default function Consulta({ navigation }) {
     const [users, setUsers] = useState()
     useEffect(() => {
-        fetch("http://localhost:8080/user/querry")
+        fetch("http://localhost:8080/user/query")
             .then(data => data.json())
             .then(result => setUsers(result))
+            .catch(err => console.log(err))
     }, [])
     return (
         <SafeAreaView style={styles.mainContainer}>
@@ -16,12 +18,17 @@ export default function Consulta({ navigation }) {
                 navigation={navigation}
             />
 
-            <SafeAreaView style={styles.conteudoContainer}>
+            <SafeAreaView style={styles.containerConsulta}>
                 <Text>Pessoas:</Text>
                 <FlatList
                     data={users}
-                    renderItem={({ item }) => <View><Text>{item.user_name}</Text></View>}
-                    keyExtractor={item => item.user_code}>
+                    keyExtractor={item => item.userCode}
+                    
+                    renderItem={({ item }) => 
+                    
+                    <UserCard user = {item}/>
+                }
+                    >
 
                 </FlatList>
             </SafeAreaView>

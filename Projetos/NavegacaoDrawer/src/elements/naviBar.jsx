@@ -1,7 +1,6 @@
-import { useState } from "react"
 import { SafeAreaView, Text, TouchableOpacity } from "react-native"
 
-import styles from "../static/styles"
+import styles from "../static/styles/naviBar"
 export default function Home(props) {
     return (
         <SafeAreaView style={styles.naviBar}>

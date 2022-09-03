@@ -1,29 +1,29 @@
 import { useState } from "react"
 import { SafeAreaView, Text, TextInput, TouchableOpacity } from "react-native"
-import styles from "../static/styles"
+import styles from "../static/styles/cadastro"
 import NaviBar from "./naviBar"
 export default function Cadastro({ navigation, route }) {
     const [nome, setNome] = useState("")
     const [senha, setSenha] = useState("")
     const [email, setEmail] = useState("")
 
-  
+
     const cadastrar = () => {
         if (true) {
-            fetch('http://localhost:8080/user/singUp',
+            fetch('http://localhost:8080/user/signUp',
                 {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json', 'content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        user_name:nome,
-                        user_passwd:senha,
-                        user_email:email
+                        userName: nome,
+                        userPasswd: senha,
+                        userEmail: email
                     })
                 }
             )
-                .then(() =>  { console.log("Registro inserido com sucesso") })
+                .then(() => { console.log("Registro inserido com sucesso") })
                 .then(() => {
                     setNome("")
                     setSenha("")
@@ -38,25 +38,33 @@ export default function Cadastro({ navigation, route }) {
             <NaviBar
                 navigation={navigation}
             />
-            <Text>Cadastro de Pessoa</Text>
-            <TextInput
-                placeholder="Nome"
-                value={nome}
-                onChangeText={setNome} />
-            <TextInput
-                placeholder="Senha"
-                value={senha}
-                onChangeText={setSenha} />
-            <TextInput
-                placeholder="Email"
-                value={email}
-                onChangeText={setEmail} />
+            <SafeAreaView style={styles.containerCadastro}>
+                <Text>Cadastro de Pessoa</Text>
+                <TextInput
+                    style={styles.inputCadastro}
+                    placeholder="Nome"
+                    placeholderTextColor="#fff"
+                    value={nome}
+                    onChangeText={setNome} />
+                <TextInput
+                    style={styles.inputCadastro}
+                    placeholder="Senha"
+                    placeholderTextColor="#fff"
+                    value={senha}
+                    onChangeText={setSenha} />
+                <TextInput
+                    style={styles.inputCadastro}
+                    placeholder="Email"
+                    placeholderTextColor="#fff"
+                    value={email}
+                    onChangeText={setEmail} />
 
-            <TouchableOpacity onPress={cadastrar}>
+                <TouchableOpacity onPress={cadastrar}>
 
-                <Text>Cadastrar</Text>
+                    <Text>Cadastrar</Text>
 
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </SafeAreaView>
         </SafeAreaView>
     )
 }

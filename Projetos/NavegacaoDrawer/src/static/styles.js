@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native"
 const styles = StyleSheet.create({
-    mainContainer:{},
+    mainContainer:{
+        flex:1,
+        backgroundColor: "#555"
+    },
     naviBar: {
-        flex: 1,
         backgroundColor: '#099',
         alignItems: 'center',
         flexDirection: 'row',
@@ -15,7 +17,12 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: "#000",
     },
-    conteudoContainer:{
+    containerConsulta:{
+        marginTop:20,
+        marginLeft: 50
+
+    }, 
+    containerCadastro:{
         marginTop:20,
         marginLeft: 50
 
@@ -26,6 +33,22 @@ const styles = StyleSheet.create({
     contCadastro:{
         margin:10,
         
+    },
+    userCard:{
+        borderColor: "#0ff",
+        borderWidth: 2,
+        marginTop: 2,
+        backgroundColor: "#222",
+          
+    },
+    userLine:{
+        color: "#0ff"
+    },
+    inputCadastro:{
+        borderWidth: 2,
+        borderColor: "#0ff",
+        backgroundColor: "#222",
+        borderRadius: 5
     }
 })
 
