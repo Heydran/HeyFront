@@ -7,7 +7,7 @@ import NaviBar from "./naviBar"
 export default function Consulta({ navigation }) {
     const [users, setUsers] = useState()
     useEffect(() => {
-        fetch("http://localhost:8080/user/query")
+        fetch("https://e21project-be.herokuapp.com/user/query")
             .then(data => data.json())
             .then(result => setUsers(result))
             .catch(err => console.log(err))

@@ -10,7 +10,7 @@ export default function Cadastro({ navigation, route }) {
 
     const cadastrar = () => {
         if (true) {
-            fetch('http://localhost:8080/user/signUp',
+            fetch('https://e21project-be.herokuapp.com/user/signUp',
                 {
                     method: 'POST',
                     headers: {
